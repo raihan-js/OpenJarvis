@@ -1,0 +1,9 @@
+[Unit]
+Description=OpenJarvis morning digest timer (weekdays 07:00)
+
+[Timer]
+OnCalendar=Mon..Fri 07:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

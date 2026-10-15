@@ -1,0 +1,11 @@
+[Unit]
+Description=OpenJarvis morning digest (one-shot)
+After=network-online.target openjarvis-serve.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/OpenJarvis
+# Set your Telegram chat id here (or pass it: script takes it as argv).
+Environment=DIGEST_CHAT_ID=123456789
+ExecStart=%h/OpenJarvis/scripts/morning-digest.sh

@@ -1,0 +1,29 @@
+{
+  "name": "openjarvis",
+  "version": "0.1.0",
+  "description": "Pocket terminal for OpenCode: drive multiple AI coding sessions from Telegram with topics, approvals, and voice",
+  "type": "module",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc && cp src/transcribe.py dist/",
+    "start": "node dist/index.js",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "TELEGRAM_BOT_TOKEN=test-token OPENCODE_DEFAULT_DIR=/tmp AUTH_DATA_DIR=./.test-tmp tsx --test tests/find-reply.test.ts tests/format.test.ts tests/queue.test.ts tests/dialogs.test.ts && rm -rf ./.test-tmp"
+  },
+  "dependencies": {
+    "grammy": "^1.41.0",
+    "dotenv": "^16.4.0",
+    "eventsource-parser": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

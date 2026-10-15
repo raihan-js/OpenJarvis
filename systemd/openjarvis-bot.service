@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenJarvis Telegram bot
+After=network-online.target openjarvis-serve.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Adjust WorkingDirectory if you cloned elsewhere.
+WorkingDirectory=%h/OpenJarvis
+ExecStart=/usr/bin/env node dist/index.js
+Restart=always
+RestartSec=5
+EnvironmentFile=%h/OpenJarvis/.env
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.data/
+*.log
+.venv-whisper/
+.venv/
+.test-tmp/

@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenJarvis headless OpenCode server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# If `opencode` is not on the default PATH (e.g. nvm installs), replace
+# `opencode` below with the absolute path from `which opencode`.
+ExecStart=opencode serve --port 4096 --hostname 127.0.0.1
+Restart=always
+RestartSec=5
+Environment=HOME=%h
+
+[Install]
+WantedBy=default.target
